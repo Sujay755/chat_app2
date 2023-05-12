@@ -38,7 +38,7 @@ const Dashboard = () => {
   const messageRef = useRef();
 
   useEffect(()=>{
-    setSocket(io('http://localhost:5050'))
+    setSocket(io('https://chat-app2-red.vercel.app:5050'))
   },[])
 
   useEffect(()=>{
@@ -74,7 +74,7 @@ if(data.senderId === chatData?.user?.id){
   
 
   const fetchUsers = async () => {
-    const response = await fetch(`http://localhost:5000/api/users`, {
+    const response = await fetch(`https://chat-app2-red.vercel.app:5000/api/users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ if(data.senderId === chatData?.user?.id){
   };
 
   const createConversation = async ({ newUser, userId }) => {
-    const response = await fetch(`http://localhost:5000/api/conversation`, {
+    const response = await fetch(`https://chat-app2-red.vercel.app:5000/api/conversation`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -104,7 +104,7 @@ if(data.senderId === chatData?.user?.id){
   const fetchMessages = async ({ conversationId, user }) => {
     setChatData({ conversationId, user });
     const response = await fetch(
-      `http://localhost:5000/api/message/${conversationId}`,
+      `https://chat-app2-red.vercel.app:5000/api/message/${conversationId}`,
       {
         method: "GET",
         headers: {
@@ -119,7 +119,7 @@ if(data.senderId === chatData?.user?.id){
 
   const fetchConversations = async () => {
     const response = await fetch(
-      `http://localhost:5000/api/conversation/${user.id}`,
+      `https://chat-app2-red.vercel.app:5000/api/conversation/${user.id}`,
       {
         method: "GET",
         headers: {
@@ -139,7 +139,7 @@ if(data.senderId === chatData?.user?.id){
       message: typedMessage,
       receiverId: chatData.user.id,
     })
-    const response = await fetch(`http://localhost:5000/api/message`, {
+    const response = await fetch(`https://chat-app2-red.vercel.app:5000/api/message`, {
       method: "POST",
       headers: {
         Accept: "application/json",
