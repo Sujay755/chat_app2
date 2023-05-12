@@ -17,7 +17,7 @@ const Form = ({ isSignInPage = false }) => {
 
   const handleSubmit = async (e)=>{
     e.preventDefault();
-    const response = await fetch(`http://localhost:5000/api/${isSignInPage? 'signin' : 'signup'}`,{
+    const response = await fetch(`https://chat-app2-red.vercel.app:5000/api/${isSignInPage? 'signin' : 'signup'}`,{
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
